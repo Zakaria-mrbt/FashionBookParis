@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Profil;
+use DateTimeImmutable;
 use App\Form\ProfilType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,9 +16,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
-    public function index(EntityManagerInterface $entityManager, Request $request,): Response
+    public function index(EntityManagerInterface $entityManager, Request $request): Response
     {
         $profil = new Profil();
+        $user = $this->getUser();
+        $profil->setUser($user);
+        
+
         $form = $this->createForm(ProfilType::class, $profil);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

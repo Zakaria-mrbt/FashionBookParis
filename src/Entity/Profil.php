@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProfilRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use App\Repository\ProfilRepository;
 
-#[Vich\Uploadable] 
 #[ORM\Entity(repositoryClass: ProfilRepository::class)]
+#[Vich\Uploadable] 
 class Profil
 {
     #[ORM\Id]
@@ -48,8 +49,19 @@ class Profil
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $siret = null;
 
-    #[ORM\OneToOne(mappedBy: 'profil', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: Post::class, orphanRemoval: true)]
+    private Collection $posts;
+
+    public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+
+    
 
     public function getId(): ?int
     {
@@ -183,19 +195,39 @@ class Profil
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
-        // unset the owning side of the relation if necessary
-        if ($user === null && $this->user !== null) {
-            $this->user->setProfil(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($user !== null && $user->getProfil() !== $this) {
-            $user->setProfil($this);
-        }
-
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Post>
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post): self
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts->add($post);
+            $post->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): self
+    {
+        if ($this->posts->removeElement($post)) {
+            // set the owning side to null (unless already changed)
+            if ($post->getIdProfil() === $this) {
+                $post->setIdProfil(null);
+            }
+        }
 
         return $this;
     }
