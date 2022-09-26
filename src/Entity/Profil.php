@@ -56,9 +56,17 @@ class Profil
     #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: Post::class, orphanRemoval: true)]
     private Collection $posts;
 
+    #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: PostComment::class, orphanRemoval: true)]
+    private Collection $postComments;
+
+    #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: PostLike::class, orphanRemoval: true)]
+    private Collection $postLikes;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+        $this->postComments = new ArrayCollection();
+        $this->postLikes = new ArrayCollection();
     }
 
     
@@ -226,6 +234,66 @@ class Profil
             // set the owning side to null (unless already changed)
             if ($post->getIdProfil() === $this) {
                 $post->setIdProfil(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PostComment>
+     */
+    public function getPostComments(): Collection
+    {
+        return $this->postComments;
+    }
+
+    public function addPostComment(PostComment $postComment): self
+    {
+        if (!$this->postComments->contains($postComment)) {
+            $this->postComments->add($postComment);
+            $postComment->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostComment(PostComment $postComment): self
+    {
+        if ($this->postComments->removeElement($postComment)) {
+            // set the owning side to null (unless already changed)
+            if ($postComment->getIdProfil() === $this) {
+                $postComment->setIdProfil(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PostLike>
+     */
+    public function getPostLikes(): Collection
+    {
+        return $this->postLikes;
+    }
+
+    public function addPostLike(PostLike $postLike): self
+    {
+        if (!$this->postLikes->contains($postLike)) {
+            $this->postLikes->add($postLike);
+            $postLike->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostLike(PostLike $postLike): self
+    {
+        if ($this->postLikes->removeElement($postLike)) {
+            // set the owning side to null (unless already changed)
+            if ($postLike->getIdProfil() === $this) {
+                $postLike->setIdProfil(null);
             }
         }
 

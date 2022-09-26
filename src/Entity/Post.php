@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -39,6 +41,18 @@ class Post
     #[ORM\ManyToOne(inversedBy: 'posts')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Profil $idProfil = null;
+
+    #[ORM\OneToMany(mappedBy: 'idPost', targetEntity: PostComment::class, orphanRemoval: true)]
+    private Collection $postComments;
+
+    #[ORM\OneToMany(mappedBy: 'idPost', targetEntity: PostLike::class, orphanRemoval: true)]
+    private Collection $postLikes;
+
+    public function __construct()
+    {
+        $this->postComments = new ArrayCollection();
+        $this->postLikes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -124,6 +138,66 @@ class Post
     public function setIdProfil(?Profil $idProfil): self
     {
         $this->idProfil = $idProfil;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PostComment>
+     */
+    public function getPostComments(): Collection
+    {
+        return $this->postComments;
+    }
+
+    public function addPostComment(PostComment $postComment): self
+    {
+        if (!$this->postComments->contains($postComment)) {
+            $this->postComments->add($postComment);
+            $postComment->setIdPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostComment(PostComment $postComment): self
+    {
+        if ($this->postComments->removeElement($postComment)) {
+            // set the owning side to null (unless already changed)
+            if ($postComment->getIdPost() === $this) {
+                $postComment->setIdPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PostLike>
+     */
+    public function getPostLikes(): Collection
+    {
+        return $this->postLikes;
+    }
+
+    public function addPostLike(PostLike $postLike): self
+    {
+        if (!$this->postLikes->contains($postLike)) {
+            $this->postLikes->add($postLike);
+            $postLike->setIdPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostLike(PostLike $postLike): self
+    {
+        if ($this->postLikes->removeElement($postLike)) {
+            // set the owning side to null (unless already changed)
+            if ($postLike->getIdPost() === $this) {
+                $postLike->setIdPost(null);
+            }
+        }
 
         return $this;
     }
