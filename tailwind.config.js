@@ -7,6 +7,11 @@ module.exports = {
     extend: {
       boxShadow: {
         'gn': '0 5px 10px 5px rgba(0,0,0,0.1)',
+      },
+      colors: {
+        'grisrs' : '#D8D8D8',
+        'grisrshover' : '#A8A7A7',
+        'blackbtn' : '#2C2C2C',
       }
     },
   },
