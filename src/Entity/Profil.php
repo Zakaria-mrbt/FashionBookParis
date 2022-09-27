@@ -62,11 +62,15 @@ class Profil
     #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: PostLike::class, orphanRemoval: true)]
     private Collection $postLikes;
 
+    #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: Story::class, orphanRemoval: true)]
+    private Collection $stories;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         $this->postComments = new ArrayCollection();
         $this->postLikes = new ArrayCollection();
+        $this->stories = new ArrayCollection();
     }
 
     
@@ -294,6 +298,36 @@ class Profil
             // set the owning side to null (unless already changed)
             if ($postLike->getIdProfil() === $this) {
                 $postLike->setIdProfil(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Story>
+     */
+    public function getStories(): Collection
+    {
+        return $this->stories;
+    }
+
+    public function addStory(Story $story): self
+    {
+        if (!$this->stories->contains($story)) {
+            $this->stories->add($story);
+            $story->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStory(Story $story): self
+    {
+        if ($this->stories->removeElement($story)) {
+            // set the owning side to null (unless already changed)
+            if ($story->getIdProfil() === $this) {
+                $story->setIdProfil(null);
             }
         }
 
