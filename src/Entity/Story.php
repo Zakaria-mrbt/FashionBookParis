@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -31,6 +33,14 @@ class Story
 
     #[ORM\Column]
     private ?bool $isActive = null;
+
+    #[ORM\OneToMany(mappedBy: 'idStory', targetEntity: StoryLike::class, orphanRemoval: true)]
+    private Collection $storyLikes;
+
+    public function __construct()
+    {
+        $this->storyLikes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +115,36 @@ class Story
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, StoryLike>
+     */
+    public function getStoryLikes(): Collection
+    {
+        return $this->storyLikes;
+    }
+
+    public function addStoryLike(StoryLike $storyLike): self
+    {
+        if (!$this->storyLikes->contains($storyLike)) {
+            $this->storyLikes->add($storyLike);
+            $storyLike->setIdStory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStoryLike(StoryLike $storyLike): self
+    {
+        if ($this->storyLikes->removeElement($storyLike)) {
+            // set the owning side to null (unless already changed)
+            if ($storyLike->getIdStory() === $this) {
+                $storyLike->setIdStory(null);
+            }
+        }
 
         return $this;
     }
