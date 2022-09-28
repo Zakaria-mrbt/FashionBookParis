@@ -4,11 +4,16 @@
 
 {% block body %}
 
+{% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
 
-{% block title %}FashionBook Paris
-{% endblock %}
+    <h1>Profil</h1>
 
-{% block body %}
-	{% include '/mes_articles_profil/index.html.twig' %}
+    {{ form_start(profil) }}
+       
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(profil) }}
 
 {% endblock %}
