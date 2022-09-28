@@ -4304,6 +4304,7 @@ sync-rpc@^1.3.6:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 tailwind-scrollbar@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/tailwind-scrollbar/-/tailwind-scrollbar-2.0.1.tgz#f08721173d513f1406a44601640b79726e3f9728"
@@ -4313,6 +4314,9 @@ tailwind-scrollbar@^2.0.1:
 >>>>>>> 7a6f0e12238485af0ec8df684d9119f205c57c55
 =======
 >>>>>>> peterBranch
+=======
+
+>>>>>>> 7fc41b1a60fbfbda5121b750c21858e340806956
 tailwindcss@^3.0.7, tailwindcss@^3.1.8:
   version "3.1.8"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.1.8.tgz"
