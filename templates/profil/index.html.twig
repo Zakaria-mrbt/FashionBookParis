@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+
 
 {% block body %}
+
 {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -14,4 +15,5 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(profil) }}
+
 {% endblock %}

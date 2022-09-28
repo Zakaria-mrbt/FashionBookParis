@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +13,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[ORM\Entity(repositoryClass: ProfilRepository::class)]
 #[Vich\Uploadable] 
+
+
 class Profil
 {
     #[ORM\Id]
@@ -73,12 +76,11 @@ class Profil
         $this->stories = new ArrayCollection();
     }
 
-    
-
     public function getId(): ?int
     {
         return $this->id;
     }
+
     public function __toString(): string
     {
         return $this->firstname. ' ' .$this->lastname.' '.$this->imageName. ' ' .$this->address.' '.$this->zipCode. ' ' .$this->country.' '.$this->siret;
@@ -118,6 +120,7 @@ class Profil
         return $this->imageName;
     }
 
+
     public function getFirstname(): ?string
     {
         return $this->firstname;
@@ -142,6 +145,7 @@ class Profil
         return $this;
     }
 
+
     public function getAddress(): ?string
     {
         return $this->address;
@@ -151,8 +155,10 @@ class Profil
     {
         $this->address = $address;
 
+
         return $this;
     }
+
 
     public function getZipCode(): ?string
     {
@@ -178,6 +184,7 @@ class Profil
         return $this;
     }
 
+
     public function getStatus(): ?string
     {
         return $this->status;
@@ -189,6 +196,7 @@ class Profil
 
         return $this;
     }
+
 
     public function getSiret(): ?string
     {
@@ -271,8 +279,10 @@ class Profil
             }
         }
 
+
         return $this;
     }
+
 
     /**
      * @return Collection<int, PostLike>
@@ -301,8 +311,10 @@ class Profil
             }
         }
 
+
         return $this;
     }
+
 
     /**
      * @return Collection<int, Story>
@@ -330,6 +342,7 @@ class Profil
                 $story->setIdProfil(null);
             }
         }
+
 
         return $this;
     }
