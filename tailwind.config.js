@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       boxShadow: {
         'gn': '0 5px 10px 5px rgba(0,0,0,0.1)',
+
       },
 
       fontFamily: {
@@ -21,6 +22,7 @@ module.exports = {
         // Complex site-specific column configuration
         'footer': '200px minmax(900px, 1fr) 100px',
       }
+
 
     },
   },
