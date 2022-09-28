@@ -1,24 +1,47 @@
 {% extends 'base.html.twig' %}
-{% block title %}FashionBook Paris
+
+{% block title %}Hello JobsProfilController!
 {% endblock %}
 
 {% block body %}
 	<div class="container mx-auto w-70 h-60">
-		<h1 class="mt-20 text-3xl text-center font-bold">Mes Articles</h1>
+		<h1 class="mt-20 text-3xl text-center font-bold">Mes Offres</h1>
 		<div class="flex mt-10 mb-10 justify-between">
-			<a href="" class="rounded-[20px] bg-white shadow-gn m-4 ml-40 p-3">+ Créer un article</a>
-			<a href="" class="rounded-[20px] bg-white shadow-gn m-4 mr-40 p-3">Filtrer les articles</a>
+			<a href="" class="rounded-[20px] bg-white shadow-gn m-4 ml-40 p-3">+ Créer une offre</a>
+			<a href="" class="rounded-[20px] bg-white shadow-gn m-4 mr-40 p-3">Filtrer les annonces</a>
 		</div>
 		<div class="container justify-center">
 			<div class="rounded-[20px] bg-white shadow-gn m-4 p-3">
-				<h2 class="text-3xl ml-4 mt-2 mb-3 font-bold">Mon article au Top</h2>
+				<h2 class="text-3xl ml-4 mt-2 mb-3 font-bold">Ma dernière publication</h2>
 				<div class="flex">
 					<img class="rounded-[20px] self-center w-2/6 m-3" src="{{ asset('img/Bobines-merceri.jpg') }}">
 					<div class="container w-4/6">
-						<h3 class="text-3xl ml-4 mt-2 mb-3">Mon sous-titre</h3>
-
-						<p class="text text-clip h-32 mr-10 mb- ml-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets as containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
+						<h3 class="text-3xl ml-4 mt-2 mb-3">Post Tanneur(se) Sénior</h3>
+						<p class="text text-clip h-10 mr-10 ml-4">Nous recherchons un(e) Tanneur(se) Sénior !
+						</p>
+						<div class="grid grid-cols-3 text-center">
+							<div class="relative w-1/3 text-center">
+								<p class="row">Les compétences</p>
+								<div class="grid pt-4 pb-4">
+									<span class="rounded-[20px] bg-[#F4F4F2] shadow-gn mt-2 mb-2">Cuir</span>
+									<span class="rounded-[20px] bg-[#F4F4F2] shadow-gn mt-2 mb-2">Croquis</span>
+									<span class="rounded-[20px] bg-[#F4F4F2] shadow-gn mt-2 mb-2">Coupe</span>
+									<span class="rounded-[20px] bg-[#F4F4F2] shadow-gn mt-2 mb-2">Cuir</span>
+								</div>
+							</div>
+							<div class="relative w-1/3">
+								<p>Le contrat</p>
+								<div class="pt-4">
+									<span class="rounded-[20px] bg-[#F4F4F2] shadow-gn p-3">CDI</span>
+								</div>
+							</div>
+							<div class="relative w-1/3">
+								<p>Le Lieu</p>
+								<div class="pt-4">
+									<span class="rounded-[20px] bg-[#F4F4F2] shadow-gn p-3">Paris</span>
+								</div>
+							</div>
+						</div>
 						<div class="ml-4 mt-10 italic">Le 12/04/2022</div>
 						<div class="flex justify-end mt-3 mr-10">
 							<button type="button" class="w-8 h-8">
@@ -29,9 +52,9 @@
 				</div>
 			</div>
 			<div class="mt-10 mb-10">
-			<hr class="border-[#BBBFCA] border-2 rounded w-6/12 align-items-cente m-auto">
-		</div>
-			<div class="container justify-center">
+				<hr class="border-[#BBBFCA] border-2 rounded w-6/12 align-items-cente m-auto">
+			</div>
+			<div class="container mt-10 justify-center">
 				<div class="rounded-[20px] bg-white shadow-gn m-4 p-3">
 					<div class="flex">
 						<img class="rounded-[20px] self-center w-2/6 m-3" src="{{ asset('img/Bobines-merceri.jpg') }}">
@@ -49,7 +72,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container justify-center">
+				<div class="container mt-10 justify-center">
 					<div class="rounded-[20px] bg-white shadow-gn m-4 p-3">
 						<div class="flex">
 							<img class="rounded-[20px] self-center w-2/6 m-3" src="{{ asset('img/Bobines-merceri.jpg') }}">
@@ -67,7 +90,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="container justify-center">
+					<div class="container mt-10 justify-center">
 						<div class="rounded-[20px] bg-white shadow-gn m-4 p-3">
 							<div class="flex">
 								<img class="rounded-[20px] self-center w-2/6 m-3" src="{{ asset('img/Bobines-merceri.jpg') }}">
@@ -85,13 +108,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="container justify-center">
+						<div class="container mt-10 justify-center">
 							<div class="rounded-[20px] bg-white shadow-gn m-4 p-3">
 								<div class="flex">
 									<img class="rounded-[20px] self-center w-2/6 m-3" src="{{ asset('img/Bobines-merceri.jpg') }}">
 									<div class="container w-4/6">
 										<h3 class="text-3xl ml-4 mt-2 mb-3">Mon sous-titre</h3>
-
 										<p class="text text-clip h-32 mr-10 mb- ml-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets as containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
 										<div class="ml-4 mt-10 italic">Le 12/04/2022</div>
@@ -103,5 +125,4 @@
 									</div>
 								</div>
 							</div>
-
 						{% endblock %}
