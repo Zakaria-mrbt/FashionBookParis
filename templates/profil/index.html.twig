@@ -3,7 +3,21 @@
 {% block title %}Hello ProfilController!{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 
 {% include 'registration/register.html.twig' %}
 
+=======
+{% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Profil</h1>
+
+    {{ form_start(profil) }}
+       
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(profil) }}
+>>>>>>> peterBranch
 {% endblock %}
