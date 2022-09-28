@@ -8,10 +8,14 @@ module.exports = {
     extend: {
       boxShadow: {
         'gn': '0 5px 10px 5px rgba(0,0,0,0.1)',
+<<<<<<< HEAD
       },
       fontFamily: {
         'roboto': ['roboto', defaultTheme.fontFamily.sans],
       },
+=======
+      }
+>>>>>>> 7a6f0e12238485af0ec8df684d9119f205c57c55
     },
   },
   plugins: [
