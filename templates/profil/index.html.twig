@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+
 
 {% block body %}
 
-{% include 'registration/register.html.twig' %}
+
+{% block title %}FashionBook Paris
+{% endblock %}
+
+{% block body %}
+	{% include '/mes_articles_profil/index.html.twig' %}
 
 {% endblock %}

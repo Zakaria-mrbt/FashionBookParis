@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FashionBookParis:Publier un cour{% endblock %}
+
+{% block body %}
+
+
+<div class="container mx-auto my-8 rounded-3xl h-[55rem] w-[60rem] box-border shadow-gn font-roboto">
+     <div class="flex items-stretch p-6 justify-between">
+     {# Nom & Photo de l'utilisateur #}
+        <div class="text-base font-semibold">User Name</div>
+     {#****************************#} 
+        <h1 class="text-base font-semibold">Publication cours</h1>
+    </div>
+<form>
+     <div class="my-10 flex place-content-center space-x-10 text-sm">
+        <select class="bg-gray-50 p-2 rounded-2xl shadow-gn font-semibold focus:outline-none focus:ring-2 focus:ring-violet-300" name="" id="">
+            <option class="hidden" value="">Type :</option>
+            <option class="" value="gratuit">Gratuit</option>
+            <option class="" value="payant">Payant</option>
+        </select>
+
+
+        <select class="bg-gray-50 p-2 rounded-2xl shadow-gn font-semibold focus:outline-none focus:ring-2 focus:ring-violet-300" name="" id="select">
+            <option class="hidden" value="">Niveau :</option>
+            <option class="" value="debutant">Débutant</option>
+            <option class"" value="interm">Intermédiaire</option>
+             <option class="" value="avance">Avancé</option>
+        </select>
+
+    </div>  
+
+    <div class="grid place-items-center my-14">
+        <label class="grid">
+            <span class="mb-3">Titre :</span>
+            <input id="title" class="p-3 h-[2rem] w-[30rem] rounded-2xl shadow-gn focus:outline-none focus:ring-2 focus:ring-violet-300"/>
+        </label>
+
+
+  <label for="legend" class="grid my-8">
+            <span class="mb-3">Légende :</span>
+            <input id="legend" class="p-3 h-[2rem] w-[30rem] rounded-2xl shadow-gn focus:outline-none focus:ring-2 focus:ring-violet-300"/>
+        </label>
+
+  <label for="content" class="grid my-4">
+            <span class="mb-3">Texte :</span>
+            <textarea id="content" class="h-[7rem] w-[30rem] p-1 pl-2 pr-2.5 leading-relaxed text-justify text-clip scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-violet-300 overflow-y-scroll resize-none break-words rounded-xl shadow-gn focus:outline-none focus:ring-2 focus:ring-violet-300"></textarea>
+        </label>
+{# Permet l'envoie de fichiers #}
+           <label class="my-4">
+            <span class="items-center mb-3">Inserez un média :</span>
+            <input type="file" class="text-sm text-slate-500 file:mr-4 file:py-2 px-2 file:rounded-full file:border-0 file:font-semibold file:bg-violet-50 file:text-violet-500 hover:file:bg-violet-100"/>
+        </label>
+ {# *********************** #}
+
+         <button type="submit" class="my-16 w-[10rem] h-[3rem] font-medium text-center text-white bg-[#BBBFCA] rounded-2xl focus:ring focus:ring-violet-300 hover:bg-gray-400">
+       Publier
+   </button>
+</form>
+
+
+     </div>
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}
