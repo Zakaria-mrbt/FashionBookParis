@@ -8,21 +8,15 @@ module.exports = {
     extend: {
       boxShadow: {
         'gn': '0 5px 10px 5px rgba(0,0,0,0.1)',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 7fc41b1a60fbfbda5121b750c21858e340806956
       },
 
       fontFamily: {
         'roboto': ['roboto', defaultTheme.fontFamily.sans],
       },
-<<<<<<< HEAD
-=======
-      }
->>>>>>> 7a6f0e12238485af0ec8df684d9119f205c57c55
-=======
+
+      
+
 
       gridTemplateColumns: {
         // Simple 3 column grid
@@ -33,7 +27,7 @@ module.exports = {
       }
 
 
->>>>>>> 7fc41b1a60fbfbda5121b750c21858e340806956
+
     },
   },
   plugins: [
@@ -46,5 +40,5 @@ module.exports = {
   }
 }
 
-}
+
 

@@ -1,71 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+	<div class="w-screen h-screen flex justify-center items-center">
+		{{ form_start(registrationForm) }}
+		<h5 class="pb-20 font-bold scroll-pb-6 text-center text-gray-900 text-2xl leading-tight mb-2">Inscription</h5>
+		<div class="flex flex-col space-y-2">
+			{{ form_row(registrationForm.name) }}
+		</div>
+		<div class="flex flex-col space-y-2">
+			{{ form_row(registrationForm.firstName) }}
+		</div>
+		<div class="flex flex-col space-y-2">
+			{{ form_row(registrationForm.status) }}
+		</div>
+		<div class="flex flex-col space-y-2">
+			{{ form_row(registrationForm.email) }}
+		</div>
+		<div class="  flex flex-col space-y-2 mb-3">
+			{{ form_row(registrationForm.plainPassword) }}
+		</div>
+		<div class="form-check">
+			{{ form_row(registrationForm.agreeTerms) }}
+		</div>
+		<button class="ml-[9rem] px-8 py-2 bg-gray-600 text-white rounded-[18px]
+			            hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in" type="submit">
+			S’inscrire
+		</button>
+		{{ form_end(registrationForm) }}
+	</div>
 
-<div>
-    
-    <div class="w-screen h-screen flex justify-center items-center">
-        <form class="p-16 bg-white rounded-[20px] shadow-gn space-y-5" action="">
-        <h5 class="pb-20 font-bold scroll-pb-6 text-center text-gray-900 text-2xl leading-tight mb-2">Inscription</h5>
-            <div class="flex flex-col space-y-2">
-                
-                <input class="w-45 px-3 py-2 rounded-md border border-slate-400" type="text" placeholder="Nom"
-                    name="nom" id="nom">
-            </div>
-                        <div class="flex flex-col space-y-2">
-                
-                <input class="w-45 px-3 py-2 rounded-md border border-slate-400" type="text" placeholder="Prénom"
-                    name="Prénom" id="Prénom">
-            </div>
-            
-        
-         <div class="flex flex-col space-y-2">
-  <div class="mb-1 ">
-    <select class="form-select appearance-none block w-full px-3 py-2  rounded-md text-base font-normal text-gray-200 bg-white bg-clip-padding bg-no-repeat border border-solid border-slate-400 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-        <option value="" disabled selected hidden>Je suis...</option>
-        <option value="1">Particulier</option>
-        <option value="2">Formateur</option>
-        <option value="3">Entreprise</option>
-        <option value="3">Autre organisation</option>
-    </select>
-  </div>
-</div>
-
-
-
-
-            <div class="flex flex-col space-y-2">
-                
-                <input class="w-45 px-3 py-2 rounded-md border border-slate-400" type="email" placeholder="E-mail"
-                    name="email" id="email">
-            </div>
-
-
-            <div class="  flex flex-col space-y-2">
-                <input class="w-50 px-3 py-2 rounded-md border border-slate-400" type="password"
-                    placeholder="Mot de passe" name="password" id="password">
-            </div>
-           
-            <div class="  flex flex-col space-y-2">
-                <input class="w-50 px-3 py-2 rounded-md border border-slate-400" type="password"
-                    placeholder="Confirmation du mot de passe" name="confirm-password" id="confirm-password">
-            </div>
-            <div class="form-check">
-      <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label  text-[14px] inline-block text-gray-800" for="flexCheckDefault">
-        En s’inscrivant vous acceptez la politique de confidentialité ....
-      </label>
-    </div>
-
-            <button class="ml-[9rem] px-8 py-2 bg-gray-600 text-white rounded-[18px]
-            hover:bg-blue-500 hover:drop-shadow-md duration-300 ease-in" type="submit">
-                S’inscrire
-            </button>
-
-        </form>
-    </div>
-  </div>
 
 {% endblock %}
