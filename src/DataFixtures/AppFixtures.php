@@ -59,41 +59,54 @@ class AppFixtures extends Fixture
 
         $manager->flush();
 
-        for ($i = 1; $i <= 10; $i++) {
-            $post = new Post();
-            $post->setIdProfil($profil->$idProfil);
-            $post->setImageName('web-search-vector-icon-png-253149-6331a52e33534282542452.jpeg')
-                ->setUpdatedAt(new \DateTimeImmutable())
-                ->setTitle($this->faker->words)
-                ->setContent($this->faker->paragraph)
-                ->setCreatedAt(new \DateTimeImmutable());
-            $manager->persist($post);
+        $profils = $manager->getRepository(Profil::class)->findAll();
+        for ($i = 0; $i <= 5; $i++) {
+            foreach ($profils as $profilUnique) {
+                $post = new Post();
+                $post->setIdProfil($profilUnique)
+                    ->setTitle($this->faker->sentence(4))
+                    ->setContent($this->faker->paragraph)
+                    ->setUpdatedAt(new \DateTimeImmutable())
+                    ->setCreatedAt($this->faker->dateTimeBetween('-6 months'))
+                    ->setImageName('postArticle.jpeg');
+                $manager->persist($post);
+            }
         }
         $manager->flush();
 
+        $posts = $manager->getRepository(Post::class)->findAll();
         for ($i = 1; $i <= 30; $i++) {
-            $postlike = new PostLike();
-            $postlike->setIdProfilId($profil->getProfilId());
-            $postlike->setIdPostId($post->getPostId());
-            $postlike->setIsActive(1);
-            $manager->persist($postlike);
+            foreach ($posts as $postUnique) {
+                $postlike = new PostLike();
+                $postlike->setIdProfil($postUnique)
+                    ->setIdPost($postUnique)
+                    ->setIsActive(1);
+                $manager->persist($postlike);
+            }
+        }
+
+        $manager->flush();
+
+        $postComs = $manager->getRepository(Post::class)->findAll();
+        for ($i = 1; $i <= 30; $i++) {
+            foreach ($postComs as $postComUnique) {
+                $postcom = new PostComment();
+                $postcom->setIdProfil($postComUnique)
+                    ->setIdPost($postComUnique)
+                    ->setContent($this->faker->sentence(3));
+                $manager->persist($postcom);
+            }
         }
         $manager->flush();
 
+        $postComlikes = $manager->getRepository(Post::class)->findAll();
         for ($i = 1; $i <= 30; $i++) {
-            $postcom = new PostComment();
-            $postcom->setIdProfilId($profil->getProfilId())
-                ->setIdPostId($post->getPostId())
-                ->setContent($this->faker->sentence(3));
-            $manager->persist($postcom);
-        }
-        $manager->flush();
-
-        for ($i = 1; $i <= 30; $i++) {
-            $postcomlike = new PostCommentLike();
-            $postcomlike->setIdCommentId($postcom->getCommentId());
-            $postcomlike->setIsActive(1);
-            $manager->persist($postcomlike);
+            foreach ($postComlikes as $postComLikeUnique) {
+                $postcomlike = new PostCommentLike();
+                $postcomlike->setIdComment($postComLikeUnique)
+                    ->setIsActive(1);
+                $manager->persist($postcomlike);
+            }
         }
         $manager->flush();
 
@@ -107,11 +120,14 @@ class AppFixtures extends Fixture
         }
         $manager->flush();
 
-        for ($usr = 1; $usr <= 5; $usr++) {
-            $storylike = new StoryLike();
-            $storylike->setIdStoryId($story->getStoryId());
-            $storylike->setIsActive(1);
-            $manager->persist($storylike);
+        $postlikes = $manager->getRepository(Story::class)->findAll();
+        for ($i = 1; $i <= 5; $i++) {
+            foreach ($postlikes as $postLikeUnique) {
+                $storylike = new StoryLike();
+                $storylike->setIdStory($postLikeUnique)
+                    ->setIsActive(1);
+                $manager->persist($storylike);
+            }
         }
         $manager->flush();
     }
