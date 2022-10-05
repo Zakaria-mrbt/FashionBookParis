@@ -74,14 +74,17 @@ class AppFixtures extends Fixture
         }
         $manager->flush();
 
+
         $posts = $manager->getRepository(Post::class)->findAll();
         for ($i = 1; $i <= 30; $i++) {
-            foreach ($posts as $postUnique) {
-                $postlike = new PostLike();
-                $postlike->setIdProfil($postUnique)
-                    ->setIdPost($postUnique)
-                    ->setIsActive(1);
-                $manager->persist($postlike);
+            foreach ($profils as $profilUnique) {
+                foreach ($posts as $postUnique) {
+                    $postlike = new PostLike();
+                    $postlike->setIdProfil($profilUnique)
+                        ->setIdPost($postUnique)
+                        ->setIsActive(1);
+                    $manager->persist($postlike);
+                }
             }
         }
 
@@ -89,46 +92,50 @@ class AppFixtures extends Fixture
 
         $postComs = $manager->getRepository(Post::class)->findAll();
         for ($i = 1; $i <= 30; $i++) {
-            foreach ($postComs as $postComUnique) {
-                $postcom = new PostComment();
-                $postcom->setIdProfil($postComUnique)
-                    ->setIdPost($postComUnique)
-                    ->setContent($this->faker->sentence(3));
-                $manager->persist($postcom);
+            foreach ($profils as $profilUnique) {
+                foreach ($postComs as $postComUnique) {
+                    $postcom = new PostComment();
+                    $postcom->setIdProfil($profilUnique)
+                        ->setIdPost($postComUnique)
+                        ->setContent($this->faker->sentence(3));
+                    $manager->persist($postcom);
+                }
             }
         }
         $manager->flush();
 
-        $postComlikes = $manager->getRepository(Post::class)->findAll();
-        for ($i = 1; $i <= 30; $i++) {
-            foreach ($postComlikes as $postComLikeUnique) {
-                $postcomlike = new PostCommentLike();
-                $postcomlike->setIdComment($postComLikeUnique)
-                    ->setIsActive(1);
-                $manager->persist($postcomlike);
-            }
-        }
-        $manager->flush();
+        // $postComs = $manager->getRepository(Post::class)->findAll();
+        // for ($i = 1; $i <= 30; $i++) {
+        //     foreach ($postComLikes as $postComLike) {
+        //         foreach ($postComs as $postComUnique) {
+        //             $postComLike = new PostCommentLike();
+        //             $postComLike->setIdComment($postComUnique)
+        //                 ->setIsActive(1);
+        //             $manager->persist($postComLike);
+        //         }
+        //     }
+        // }
+        // $manager->flush();
 
-        for ($i = 1; $i <= 5; $i++) {
-            $story = new Story();
-            $story->setTitle($this->faker->words);
-            $story->setContent($this->faker->paragraph);
-            $story->setIsActive(1);
-            $story->setImageName('web-search-vector-icon-png-253149-6331a52e33534282542452.jpeg');
-            $manager->persist($story);
-        }
-        $manager->flush();
+        //     for ($i = 1; $i <= 5; $i++) {
+        //         $story = new Story();
+        //         $story->setTitle($this->faker->words);
+        //         $story->setContent($this->faker->paragraph);
+        //         $story->setIsActive(1);
+        //         $story->setImageName('web-search-vector-icon-png-253149-6331a52e33534282542452.jpeg');
+        //         $manager->persist($story);
+        //     }
+        //     $manager->flush();
 
-        $postlikes = $manager->getRepository(Story::class)->findAll();
-        for ($i = 1; $i <= 5; $i++) {
-            foreach ($postlikes as $postLikeUnique) {
-                $storylike = new StoryLike();
-                $storylike->setIdStory($postLikeUnique)
-                    ->setIsActive(1);
-                $manager->persist($storylike);
-            }
-        }
-        $manager->flush();
+        //     $postlikes = $manager->getRepository(Story::class)->findAll();
+        //     for ($i = 1; $i <= 5; $i++) {
+        //         foreach ($postlikes as $postLikeUnique) {
+        //             $storylike = new StoryLike();
+        //             $storylike->setIdStory($postLikeUnique)
+        //                 ->setIsActive(1);
+        //             $manager->persist($storylike);
+        //         }
+        //     }
+        //     $manager->flush();
     }
 }
