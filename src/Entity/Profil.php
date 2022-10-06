@@ -65,8 +65,15 @@ class Profil
     #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: PostLike::class, orphanRemoval: true)]
     private Collection $postLikes;
 
+
+    #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: PostCommentLike::class, orphanRemoval: true)]
+    private Collection $postCommentLikes;
+
     #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: Story::class, orphanRemoval: true)]
     private Collection $stories;
+
+    #[ORM\OneToMany(mappedBy: 'idProfil', targetEntity: StoryLike::class, orphanRemoval: true)]
+    private Collection $storyLikes;
 
     public function __construct()
     {
@@ -74,6 +81,9 @@ class Profil
         $this->postComments = new ArrayCollection();
         $this->postLikes = new ArrayCollection();
         $this->stories = new ArrayCollection();
+        $this->postCommentLikes = new ArrayCollection();
+        $this->storiess = new ArrayCollection();
+        $this->storyLikes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -355,6 +365,96 @@ class Profil
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PostCommentLike>
+     */
+    public function getPostCommentLikes(): Collection
+    {
+        return $this->postCommentLikes;
+    }
+
+    public function addPostCommentLike(PostCommentLike $postCommentLike): self
+    {
+        if (!$this->postCommentLikes->contains($postCommentLike)) {
+            $this->postCommentLikes->add($postCommentLike);
+            $postCommentLike->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostCommentLike(PostCommentLike $postCommentLike): self
+    {
+        if ($this->postCommentLikes->removeElement($postCommentLike)) {
+            // set the owning side to null (unless already changed)
+            if ($postCommentLike->getIdProfil() === $this) {
+                $postCommentLike->setIdProfil(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Story>
+     */
+    public function getStoriess(): Collection
+    {
+        return $this->storiess;
+    }
+
+    public function addStoriess(Story $storiess): self
+    {
+        if (!$this->storiess->contains($storiess)) {
+            $this->storiess->add($storiess);
+            $storiess->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStoriess(Story $storiess): self
+    {
+        if ($this->storiess->removeElement($storiess)) {
+            // set the owning side to null (unless already changed)
+            if ($storiess->getIdProfil() === $this) {
+                $storiess->setIdProfil(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, StoryLike>
+     */
+    public function getStoryLikes(): Collection
+    {
+        return $this->storyLikes;
+    }
+
+    public function addStoryLike(StoryLike $storyLike): self
+    {
+        if (!$this->storyLikes->contains($storyLike)) {
+            $this->storyLikes->add($storyLike);
+            $storyLike->setIdProfil($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStoryLike(StoryLike $storyLike): self
+    {
+        if ($this->storyLikes->removeElement($storyLike)) {
+            // set the owning side to null (unless already changed)
+            if ($storyLike->getIdProfil() === $this) {
+                $storyLike->setIdProfil(null);
+            }
+        }
 
         return $this;
     }

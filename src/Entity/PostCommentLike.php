@@ -20,6 +20,10 @@ class PostCommentLike
     #[ORM\JoinColumn(nullable: false)]
     private ?PostComment $idComment = null;
 
+    #[ORM\ManyToOne(inversedBy: 'postCommentLikes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Profil $idProfil = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +49,18 @@ class PostCommentLike
     public function setIdComment(?PostComment $idComment): self
     {
         $this->idComment = $idComment;
+
+        return $this;
+    }
+
+    public function getIdProfil(): ?Profil
+    {
+        return $this->idProfil;
+    }
+
+    public function setIdProfil(?Profil $idProfil): self
+    {
+        $this->idProfil = $idProfil;
 
         return $this;
     }

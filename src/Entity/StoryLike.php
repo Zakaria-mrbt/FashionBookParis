@@ -20,6 +20,10 @@ class StoryLike
     #[ORM\JoinColumn(nullable: false)]
     private ?Story $idStory = null;
 
+    #[ORM\ManyToOne(inversedBy: 'storyLikes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Profil $idProfil = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +49,18 @@ class StoryLike
     public function setIdStory(?Story $idStory): self
     {
         $this->idStory = $idStory;
+
+        return $this;
+    }
+
+    public function getIdProfil(): ?Profil
+    {
+        return $this->idProfil;
+    }
+
+    public function setIdProfil(?Profil $idProfil): self
+    {
+        $this->idProfil = $idProfil;
 
         return $this;
     }

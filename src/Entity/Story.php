@@ -25,6 +25,9 @@ class Story
     #[ORM\Column(type: 'string')]
     private ?string $imageName = null;
 
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $updatedAt = null;
+
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
@@ -36,6 +39,10 @@ class Story
 
     #[ORM\OneToMany(mappedBy: 'idStory', targetEntity: StoryLike::class, orphanRemoval: true)]
     private Collection $storyLikes;
+
+    #[ORM\ManyToOne(inversedBy: 'storiess')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Profil $idProfil = null;
 
     public function __construct()
     {
@@ -145,6 +152,30 @@ class Story
                 $storyLike->setIdStory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIdProfil(): ?Profil
+    {
+        return $this->idProfil;
+    }
+
+    public function setIdProfil(?Profil $idProfil): self
+    {
+        $this->idProfil = $idProfil;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @return  self
+     */ 
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
