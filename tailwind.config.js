@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       boxShadow: {
         'gn': '0 5px 10px 5px rgba(0,0,0,0.1)',
+        'ga': '10px 10px 10px 0px rgba(0,0,0,0.1)',
 
       },
 
@@ -16,7 +17,11 @@ module.exports = {
       },
 
       
-
+      colors: {
+        'grisrs' : '#D8D8D8',
+        'grisrshover' : '#A8A7A7',
+        'blackbtn' : '#2C2C2C',
+      },
 
       gridTemplateColumns: {
         // Simple 3 column grid

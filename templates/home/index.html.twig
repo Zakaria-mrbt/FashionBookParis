@@ -4,4 +4,456 @@
 
 {% block body %}
 
-{% endblock %}
+{# Carrousel #}
+<div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4 mb-28 font-roboto">
+  <div class="w-full relative flex items-center justify-center">
+    {# previous button carousel #}
+    {# outline of the button for the carousel #}
+    <div class="bg-gray-900 relative w-[40px] h-[40px] mr-[40px] bg-opacity-70 rounded-full">
+      {# button carousel #}
+      <button aria-label="slide backward" class="flex absolute mt-[12px] ml-[13px] z-30 left-0 cursor-pointer" id="prev">
+        <svg class="text-white" width="12" height="18" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="w-[1060px] h-full overflow-x-hidden overflow-y-hidden">
+      {# spread of images in the page on different device #}
+      <div id="slider" class="h-full flex lg:gap-8 md:gap-4 gap-10 items-center justify-start transition ease-out duration-700">
+        {# size and position image 1 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem] " />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem] ">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-left text-base lg:text-base leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 2 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 3 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 4 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 5 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 6 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 7 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 8 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 9 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 10 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+        {# size and position image 11 #}
+        <div class="flex flex-shrink-0 relative w-[150px] h-[220px]">
+          <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area" class="object-cover object-center w-full rounded-[1.5rem]" />
+          <div class="bg-gray-900 mt-[140px] bg-opacity-50 absolute w-[150px] h-[80px] p-6 rounded-b-[1.5rem]">
+            {# text and outline #}
+            <div class="flex h-full items-end pt-[2rem]">
+              <h3 class="text-base lg:text-base  leading-5 lg:leading-6 text-white dark:text-gray-300 font-roboto">Minimal Interior</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {# next button carousel #}
+    {# outline of the button for the carousel #}
+    <div class="bg-gray-900 relative w-[40px] h-[40px] ml-[40px] bg-opacity-70 rounded-full">
+      {# button carousel #}
+      <button aria-label="slide forward" class="flex absolute mt-[12px] mr-[13px] z-30 right-0 " id="next">
+        <svg class="text-white" width="12" height="18" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+{# End Carrousel #}
+
+
+<div class="grid grid-cols-3 font-roboto" >
+    <div class="flex flex-col items-center">
+    {# Resent Search #}
+    <div class=" w-[330px] h-[250px] rounded-[10px] shadow-gn m-8 ">
+      <h6 class="ml-4 pt-4 text-xl font-semibold">Resent searches</h6>
+      <div class="flex flex-wrap gap-4 overflow-hidden m-4 ">
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Debrief Fashion #34</a>
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Vogues Uk </a>
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Automne 2022</a>
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Idées Shopping #66</a>
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Les atelier de Roxanne</a>
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Gucci</a>
+        <a href="#" class="bg-grisrs rounded-full py-1 px-2 text-sm hover:bg-grisrshover hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out">Ba&sh</a>
+      </div>
+    </div>
+    {# End Resent Search #}
+  
+    {# Top Profil #}
+    <div class="block p-6 rounded-[10px] shadow-gn bg-white m-8 w-[330px] ">
+      <h5 class="font-semibold text-black text-xl mb-2"> Top FashionBook Profil </h5>
+      <div class="flex flex-row my-8">
+        <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[60px] h-[60px] rounded-full" alt="">
+        <div class="flex flex-col">
+          <p class="font-[500] text-gray-900 ml-4">
+            Roxanne_Atelier
+          </p>
+          <p class="font-[300] text-gray-700 text-sm ml-4">
+            Profession
+          </p>
+          <button type="button" class=" ml-4 mt-2 inline-block w-[80px] h-[20px] bg-blue-600 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out font-roboto">Suivre</button>
+        </div>
+      </div>
+      <div class="flex flex-row my-8">
+        <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[60px] h-[60px] rounded-full" alt="">
+        <div class="flex flex-col">
+          <p class="font-[500] ml-4">
+            Roxanne_Atelier
+          </p>
+          <p class="text-gray-700 text-sm leading-tight font-medium ml-4">
+            Profession
+          </p>
+          <button type="button" class=" ml-4 mt-2 inline-block w-[80px] h-[20px] bg-blue-600 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out font-roboto">Suivre</button>
+        </div>
+      </div>
+      <div class="flex flex-row my-8">
+        <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[60px] h-[60px] rounded-full" alt="">
+        <div class="flex flex-col">
+          <p class="font-[500] ml-4">
+            Roxanne_Atelier
+          </p>
+          <p class="text-gray-700 text-sm leading-tight font-medium ml-4">
+            Profession
+          </p>
+          <button type="button" class=" ml-4 mt-2 inline-block w-[80px] h-[20px] bg-blue-600 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out font-roboto">Suivre</button>
+        </div>
+      </div>
+      <div class="flex flex-row my-8">
+        <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[60px] h-[60px] rounded-full" alt="">
+        <div class="flex flex-col">
+          <p class="font-[500] ml-4">
+            Roxanne_Atelier
+          </p>
+          <p class="text-gray-700 text-sm leading-tight font-medium ml-4">
+            Profession
+          </p>
+          <button type="button" class=" ml-4 mt-2 inline-block w-[80px] h-[20px] bg-blue-600 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out font-roboto">Suivre</button>
+        </div>
+      </div>
+    </div>
+    {# End Top Profil #}
+</div>
+
+<div class="flex flex-col items-center">
+    {# Search Bar #}
+      <div class=" w-[646px] h-[130px] rounded-[10px] mt-8 shadow-gn  ">
+        <div class="">
+          <h6 class="ml-8 pt-4 text-xl font-semibold">Reseaux Sociale :</h6>
+          <div class="relative">
+            <form action="">
+              <div class="flex absolute inset-y-0 left-5 top-2 items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <input type"search"="type" search"" placeholder="Faire une Recherche"  class="placeholder:text-black border-2 border-black rounded-[20px] h-[40px] w-[330px] ml-5 pl-9 mt-2 text-sm focus:ring-blue-500 focus:border-blue-500">
+            </form>
+          </div>
+        </div>
+    </div>
+    {# End Search Bar #}
+    {# Buttons Adds #}
+    <div class="flex mt-8 space-x-8">
+      <div class="">
+        <button class="py-2 px-4 bg-blackbtn text-white rounded-[20px] shadow-gn w-[360px] h-[70px] flex flex-row justify-center place-items-center">
+          <div class="bg-white rounded-full w-[35px] h-[35px] mr-8 flex justify-center place-items-center ">
+            <svg class="" xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+              <path d="M17.8438 9.39648V10.7324H0.300781V9.39648H17.8438ZM9.65234 0.800781V19.4336H8.22852V0.800781H9.65234Z" fill="#938888" />
+            </svg>
+          </div>
+          Ajoutez une publication
+        </button>
+      </div>
+      <div>
+        <button class="py-2 px-4 rounded-[20px] shadow-gn w-[260px] h-[70px] flex flex-row justify-center place-items-center">
+          <svg class="mr-8" xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+            <path d="M17.8438 9.39648V10.7324H0.300781V9.39648H17.8438ZM9.65234 0.800781V19.4336H8.22852V0.800781H9.65234Z" fill="#938888" />
+          </svg>
+          Ajoutez des amis
+        </button>
+      </div>
+    </div>
+    {# End Buttons Adds #}
+
+    {% for post in posts %}
+{# Publication #}
+<div class="flex flex-col items-center  w-[793px] h-auto rounded-[10px] shadow-gn p-8 mt-8  ">
+  {# Media Publication #}
+    {# Profil #}
+    <div class="flex self-start mb-8 ml-16">
+      <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[70px] h-[70px] rounded-full mr-4" alt="">
+      <a href="#" class=" text-base mt-4 font-medium ">
+        {# {{ user.name }} #}
+      </a>
+    </div>
+    {# End Profil #}
+    {# Media carrousel #}
+    <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+      <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button class="" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button class="" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+      <div class="carousel-inner relative w-[614px] h-[424px] overflow-hidden">
+        <div class="carousel-item active relative float-left w-full h-full">
+          <img src="{{ asset('img/image1.png') }}" class="block w-full h-full" alt="..." />
+        </div>
+        <div class="carousel-item relative float-left w-full h-full">
+          <img src="{{ asset('img/image2.png') }}" class="block w-full h-full" alt="..." />
+        </div>
+        <div class="carousel-item relative float-left w-full h-full">
+          <img src="{{ asset('img/image3.png') }}" class="block w-full h-full" alt="..." />
+        </div>
+        <div class="carousel-item relative float-left w-full h-full">
+          <img src="{{ asset('img/YouTube Player.png') }}" class="block w-full h-full" alt="..." />
+        </div>
+      </div>
+      <button class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      </button>
+      <button class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      </button>
+    </div>
+    {# End Media carrousel #}
+    {# Like And Share #}
+
+    <div class="flex items-center self-end gap-4 mr-20 my-4">
+      <div class="flex items-center flex-row gap-2">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+            <path fill="#f12825" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9z" />
+          </svg>
+        </a>
+        <p>567</p>
+      </div>
+      <div>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M5.5 15a3.478 3.478 0 0 0 2.357-.93l6.26 3.577a3.52 3.52 0 1 0 1.026-1.717l-6.26-3.577c.066-.25.102-.509.108-.768l6.15-3.515A3.489 3.489 0 1 0 14 5.5c.004.288.043.575.117.853L8.433 9.6A3.5 3.5 0 1 0 5.5 15Z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    {# End Like And Share #}
+    {# Post #}
+    <div class="flex flex-col self-center w-[614px]">
+      {# Post Title #}
+      <div>
+        <h5 class="font-semibold text-xl mt-8 mb-4"> {{ post.title }} </h5>
+      </div>
+      {# End Media Title #}
+      {# Post Content #}
+      <p class="text-sm">{{ post.content }}</p>
+      <div class="  flex flex-col-reverse items-center">
+        <a class="inline-block px-6 py-2.5 transition duration-150 ease-in-out" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+            <path fill="currentColor" fill-rule="evenodd" d="m6 7l6 6l6-6l2 2l-8 8l-8-8z" />
+          </svg>
+        </a>
+        <div class="collapse" id="collapseExample">
+          <p class="text-sm">Vous venez d’acquérir votre première machine à coudre et vous voulez vous lancer dans la couture ? Voicis 10 idées couture facile avec tutoriels complets !
+            <br> {#Permettre a l'utilisteur de mettre de saut de ligne #}
+            <br>
+            Notre liste de tutos couture est spécialement adaptée aux débutants. Il ne vous reste plus qu’à aller faire un petit tour à la mercerie pour y trouver toutes les fournitures
+          </p>
+        </div>
+      </div>
+    </div>
+    {# End Post Content #}
+    {# Post Info #}
+    <div class="flex flex-row self-end gap-3 mr-[70px]">
+      {# CreatDate #}
+      <div class="flex items-end text-sm ">
+        <p>{{ post.createdat|date('d-m-Y') }}</p>
+      </div>
+      {# End CreatDate #}
+      {# paramettre #}
+      <div class="flex self-end">
+        <div class="dropdown relative">
+          <button class="flex gap-1 mb-[6px] " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class=" w-1 h-1 bg-grisrshover rounded-full"></span>
+            <span class=" w-1 h-1 bg-grisrshover rounded-full"></span>
+            <span class=" w-1 h-1 bg-grisrshover rounded-full"></span>
+          </button>
+          <ul class=" dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1  m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Signaler</a>
+            </li>
+            <li>
+              <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Info</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {# end paramettre #}
+    </div>
+    {# End Post Info #}
+    <span class="bg-gray-500 w-11/12 h-px mt-8 "></span>
+    {# Commente Section #}
+    <div class=" flex flex-col justify-center items-center ">
+      {# Post Commente #}
+      <div class="flex flex-row my-8 gap-8">
+        <div class="">
+          <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[50px] h-[50px] rounded-full " alt="">
+        </div>
+        <div>
+          <form action="">
+            <input type="text" placeholder="Commenter" class=" placeholder:text-blackbtn bg-gray-200 border-1 border-black rounded-[20px] h-[35px] w-[460px] text-sm focus:ring-blue-500 focus:border-blue-500 pl-9">
+          </form>
+        </div>
+      </div>
+      {# End Post Commente #}
+      {# Commente #}
+      <div class="flex flex-col ">
+        <div class="flex flex-row justify-center items-center my-5">
+          <div class="flex flex-row relative left-[72px] bottom-6">
+            <img src="https://mdbootstrap.com//img/Photos/Square/1.jpg" class="w-[50px] h-[50px] rounded-full mr-4" alt="">
+            <p>Louis-grca</p>
+          </div>
+          <div class=" flex flex-col w-[75%] mt-10 text-sm">
+            <p class="">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non imperdiet mi. Vivamus lacinia ullamcorper elementum. Aliquam facilisis magna tortor,</p>
+            {# comment footer ??? #}
+            <div class=" flex mt-4">
+              {# Info comment #}
+              <div class="flex flex-row justify-between items-center w-[90%]">
+                <p class="text-sm">A publié le 12/12/2012</p>
+                <div class="flex gap-4">
+                  {# End Info comment #}
+                  {# Like #}
+                  <div class="flex gap-2">
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                        <path fill="#f12825" d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8a264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39c-10 6.1-19.5 12.8-28.5 20.1c-9-7.3-18.5-14-28.5-20.1c-41.8-25.5-89.9-39-139.2-39c-35.5 0-69.9 6.8-102.4 20.3c-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9c0 33.3 6.8 68 20.3 103.3c11.3 29.5 27.5 60.1 48.2 91c32.8 48.9 77.9 99.9 133.9 151.6c92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3c56-51.7 101.1-102.7 133.9-151.6c20.7-30.9 37-61.5 48.2-91c13.5-35.3 20.3-70 20.3-103.3c.1-35.3-7-69.6-20.9-101.9z" />
+                      </svg>
+                    </a>
+                    <p>23</p>
+                  </div>
+                  {# End Like  #}
+                  {# comment paramettre #}
+                  <div class="flex self-end">
+                    <div class="dropdown relative">
+                      <button class="flex gap-1 mb-[6px] " type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class=" w-1 h-1 bg-grisrshover rounded-full"></span>
+                        <span class=" w-1 h-1 bg-grisrshover rounded-full"></span>
+                        <span class=" w-1 h-1 bg-grisrshover rounded-full"></span>
+                      </button>
+                      <ul class=" dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1  m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton2">
+                        <li>
+                          <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Signaler</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">Info</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  {# end comment paramettre #}
+                </div>
+              </div>
+              {# End comment footer ??? #}
+            </div>
+          </div>
+        </div>
+      </div>
+      {# End Commente Section #}
+      <div class="my-5">
+        <a href="#">Voir tout les commentaires</a>
+      </div>
+      {# End Commente #}
+    </div>
+</div>
+{# End Publication #}
+{% endfor %}
+  </div>
+
+  
+  </div>
+
+
+  {% endblock %}
