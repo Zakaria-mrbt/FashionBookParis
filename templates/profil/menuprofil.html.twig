@@ -1,5 +1,3 @@
-{% extends 'base.html.twig' %}
-
 {% block body %}
 	<div>
 		<div class="inline-flex absolute w-fit ml-52 mt-36">
@@ -99,21 +97,4 @@
 			</div>
 		</div>
 	</div>
-	{# {% include 'job.html.twig'%}
-			{% include 'media.html.twig'%}
-			{% include 'article.html.twig'%}
-			{% include 'publish.html.twig'%} #}
-
-
-	{% for flash_error in app.flashes('verify_email_error') %}
-		<div class="alert alert-danger" role="alert">
-			{{ flash_error }}</div>
-	{% endfor %}
-
-	<h1>Profil</h1>
-
-	{{ form_start(profil) }}
-
-	<button type="submit" class="btn">Register</button>
-	{{ form_end(profil) }}
 {% endblock %}

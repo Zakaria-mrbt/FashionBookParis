@@ -21,13 +21,12 @@ class ProfilController extends AbstractController
         $profil = new Profil();
         $user = $this->getUser();
         $profil->setUser($user);
-        
+
 
         $form = $this->createForm(ProfilType::class, $profil);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
-           
 
             $entityManager->persist($profil);
             $entityManager->flush();
@@ -36,7 +35,7 @@ class ProfilController extends AbstractController
             return $this->redirectToRoute('app_profil');
         }
 
-        return $this->render('profil/index.html.twig', [
+        return $this->render('profil/job.html.twig', [
             'profil' => $form->createView(),
         ]);
     }
