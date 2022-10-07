@@ -2,41 +2,77 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Entity\Profil;
-use DateTimeImmutable;
-use App\Form\ProfilType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Form\Profil1Type;
+use App\Repository\ProfilRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/profil')]
 class ProfilController extends AbstractController
 {
-    #[Route('/profil', name: 'app_profil')]
-    public function index(EntityManagerInterface $entityManager, Request $request): Response
+    #[Route('/', name: 'app_profil_index', methods: ['GET'])]
+    public function index(ProfilRepository $profilRepository): Response
+    {
+        return $this->render('profil/index.html.twig', [
+            'profils' => $profilRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/new', name: 'app_profil_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, ProfilRepository $profilRepository): Response
     {
         $profil = new Profil();
-        $user = $this->getUser();
-        $profil->setUser($user);
-
-
-        $form = $this->createForm(ProfilType::class, $profil);
+        $form = $this->createForm(Profil1Type::class, $profil);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            $profilRepository->add($profil, true);
 
-            $entityManager->persist($profil);
-            $entityManager->flush();
-
-
-            return $this->redirectToRoute('app_profil');
+            return $this->redirectToRoute('app_profil_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('profil/job.html.twig', [
-            'profil' => $form->createView(),
+        return $this->renderForm('profil/new.html.twig', [
+            'profil' => $profil,
+            'form' => $form,
         ]);
+    }
+
+    #[Route('/{id}', name: 'app_profil_show', methods: ['GET'])]
+    public function show(Profil $profil): Response
+    {
+        return $this->render('profil_/show.html.twig', [
+            'profil' => $profil,
+        ]);
+    }
+
+    #[Route('/{id}/edit', name: 'app_profil_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Profil $profil, ProfilRepository $profilRepository): Response
+    {
+        $form = $this->createForm(Profil1Type::class, $profil);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $profilRepository->add($profil, true);
+
+            return $this->redirectToRoute('app_profil_c_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('profil_c/edit.html.twig', [
+            'profil' => $profil,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_profil_c_delete', methods: ['POST'])]
+    public function delete(Request $request, Profil $profil, ProfilRepository $profilRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$profil->getId(), $request->request->get('_token'))) {
+            $profilRepository->remove($profil, true);
+        }
+
+        return $this->redirectToRoute('app_profil_index', [], Response::HTTP_SEE_OTHER);
     }
 }

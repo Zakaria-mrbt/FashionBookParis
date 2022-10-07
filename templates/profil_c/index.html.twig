@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil index{% endblock %}
+
+{% block body %}
+    <h1>Profil index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ImageName</th>
+                <th>UpdatedAt</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <th>ZipCode</th>
+                <th>Country</th>
+                <th>Status</th>
+                <th>Siret</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profil in profils %}
+            <tr>
+                <td>{{ profil.id }}</td>
+                <td>{{ profil.imageName }}</td>
+                <td>{{ profil.updatedAt ? profil.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ profil.firstname }}</td>
+                <td>{{ profil.lastname }}</td>
+                <td>{{ profil.address }}</td>
+                <td>{{ profil.zipCode }}</td>
+                <td>{{ profil.country }}</td>
+                <td>{{ profil.status }}</td>
+                <td>{{ profil.siret }}</td>
+                <td>
+                    <a href="{{ path('app_profil_c_show', {'id': profil.id}) }}">show</a>
+                    <a href="{{ path('app_profil_c_edit', {'id': profil.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_profil_c_new') }}">Create new</a>
+{% endblock %}

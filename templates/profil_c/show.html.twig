@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <h1>Profil</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ profil.id }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ profil.imageName }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ profil.updatedAt ? profil.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ profil.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ profil.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ profil.address }}</td>
+            </tr>
+            <tr>
+                <th>ZipCode</th>
+                <td>{{ profil.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ profil.country }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ profil.status }}</td>
+            </tr>
+            <tr>
+                <th>Siret</th>
+                <td>{{ profil.siret }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_profil_c_index') }}">back to list</a>
+
+    <a href="{{ path('app_profil_c_edit', {'id': profil.id}) }}">edit</a>
+
+    {{ include('profil_c/_delete_form.html.twig') }}
+{% endblock %}

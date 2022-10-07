@@ -388,6 +388,7 @@
         </div>
       </div>
       {# End Post Commente #}
+      {% for postscomment in postscomments %}
       {# Commente #}
       <div class="flex flex-col ">
         <div class="flex flex-row justify-center items-center my-5">
@@ -446,6 +447,7 @@
         <a href="#">Voir tout les commentaires</a>
       </div>
       {# End Commente #}
+      {% endfor %}
     </div>
 </div>
 {# End Publication #}
